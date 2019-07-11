@@ -7,7 +7,7 @@ export default function redirect(ctx, target) {
         ctx.res.writeHead(303, { Location: target });
         ctx.res.end();
     } else {
-        // In the browser, we just pretend like this never even happened ;)
+        // In the browser, we just pretend like this never even happened
         Router.replace(target);
     }
 }
