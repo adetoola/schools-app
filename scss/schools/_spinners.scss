@@ -1,0 +1,66 @@
+.loading-spin {
+  transform: translateZ(1px);
+  > img {
+    margin: $spacer;
+    background:transparent;
+    animation: loading-spin 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  }
+}
+
+.rainbow-spin {
+  width: 120px;
+  text-align: center;
+}
+
+.rainbow-spin > div {
+  width: $spacer;
+  height: $spacer;
+  background-color: $yellow;
+
+  border-radius: 100%;
+  display: inline-block;
+  animation: bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.rainbow-spin {
+  .bounce1 {
+    animation-delay: -0.48s;
+    background-color: $primary;
+  }
+
+  .bounce2 {
+    animation-delay: -0.32s;
+    background-color: $red;
+  }
+  .bounce3 {
+    animation-delay: -0.16s;
+    background-color: $green;
+  }
+}
+
+@keyframes loading-spin {
+  0%, 100% {
+    animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
+  }
+
+  0% {
+    transform: rotateY(0deg);
+  }
+
+  50% {
+    transform: rotateY(1800deg);
+    animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
+  }
+
+  100% {
+    transform: rotateY(3600deg);
+  }
+}
+
+@keyframes bouncedelay {
+  0%, 80%, 100% { 
+    transform: scale(0);
+  } 40% { 
+    transform: scale(1);
+  }
+}
