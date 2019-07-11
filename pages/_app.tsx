@@ -1,14 +1,13 @@
-import React from 'react';
 import App, { Container } from 'next/app';
 import { ApolloProvider } from 'react-apollo';
 
 import Page from '../components/Page';
 import { isMobile } from '../lib/isMobile';
-import withApollo from '../lib/withApollo';
+import withApolloClient from '../lib/withApolloClient';
 
 interface Props {
     Component: any;
-    apollo: any;
+    apolloClient: any;
     pageProps: any;
 }
 
@@ -27,11 +26,11 @@ class MyApp extends App<Props, { isMobile: boolean }> {
     public props: Props;
 
     public render() {
-        const { Component, apollo, pageProps }: Props = this.props;
+        const { Component, apolloClient, pageProps }: Props = this.props;
 
         return (
             <Container>
-                <ApolloProvider client={apollo}>
+                <ApolloProvider client={apolloClient}>
                     <Page>
                         <Component {...pageProps} />
                     </Page>
@@ -41,4 +40,4 @@ class MyApp extends App<Props, { isMobile: boolean }> {
     }
 }
 
-export default withApollo(MyApp);
+export default withApolloClient(MyApp);
