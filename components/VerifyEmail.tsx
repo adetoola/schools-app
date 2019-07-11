@@ -1,4 +1,3 @@
-import React from 'react';
 import gql from 'graphql-tag';
 import { NextFunctionComponent } from 'next';
 import { Mutation, MutationFn, MutationResult } from 'react-apollo';
@@ -9,7 +8,7 @@ import VerifyEmailError from './VerifyEmailError';
 const VERIFY_EMAIL_MUTATION = gql`
     mutation VERIFY_EMAIL_MUTATION($token: String!) {
         verify(token: $token) {
-            id
+            ok
         }
     }
 `;
